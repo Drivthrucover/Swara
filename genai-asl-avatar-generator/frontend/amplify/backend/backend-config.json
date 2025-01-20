@@ -1,0 +1,105 @@
+{
+  "api": {
+    "Audio2Sign": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "Audio2Sign"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "asltesta9d07f72": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "Audio2Sign": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_Audio2Sign_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "Audio2Sign"
+        }
+      ]
+    },
+    "AMPLIFY_function_Audio2Sign_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "Audio2Sign"
+        }
+      ]
+    },
+    "AMPLIFY_storage_s3a03f23af_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "s3a03f23af"
+        }
+      ]
+    },
+    "AMPLIFY_storage_s3a03f23af_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "s3a03f23af"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "s3a03f23af": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "serviceType": "imported"
+    },
+    "swara-123": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "serviceType": "imported"
+    }
+  }
+}
